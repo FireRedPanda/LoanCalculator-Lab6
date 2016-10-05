@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.function.DoubleSupplier;
@@ -30,6 +31,8 @@ public class CalculateLoan extends AppCompatActivity {
         initAmountText = (EditText) findViewById(R.id.inputInitAmount);
         interestRateText = (EditText) findViewById(R.id.inputInterestRate);
         lengthText = (EditText) findViewById(R.id.inputLength);
+
+        createXML();
 
     }
 
@@ -95,6 +98,27 @@ public class CalculateLoan extends AppCompatActivity {
         initAmountText.setText("");
         interestRateText.setText("");
         lengthText.setText("");
+
+    }
+
+    private void createXML(){
+        // INPUT LAYOUT
+        LinearLayout inputWidget = new LinearLayout(this);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        inputWidget.setLayoutParams(params);
+
+        TextView input = new TextView(this);
+        input.setLayoutParams(params);
+        input.setTextSize(20);
+        input.setText("@string/inputTitle");
+        inputWidget.addView(input);
+
+        LinearLayout initialLayout = new LinearLayout(this);
+        inputWidget.setLayoutParams(params);
+        initialLayout.setOrientation(LinearLayout.HORIZONTAL);
+
+
 
     }
 
